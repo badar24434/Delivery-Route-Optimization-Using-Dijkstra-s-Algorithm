@@ -22,7 +22,7 @@ In this article, we will determine the shortest route for delivery service by **
 
 ## Proof of Correctness for Dijkstra's Algorithm:
 
-**Claim:** In Dijkstra's Algorithm, when a vertex `u` is included in the reached set, the distance computed by the algorithm #`D(S , u)` is equal to the actual minimum distance #`d(S , u)` from the source `S` to `u`.
+**Claim:** In Dijkstra's Algorithm, when a vertex `u` is included in the reached set, the distance computed by the algorithm `D(S , u)` is equal to the actual minimum distance `d(S , u)` from the source `S` to `u`.
 
 **Proof:** (by contradiction)
 
@@ -34,8 +34,8 @@ Let's denote `x` as the first vertex among these where this inequality holds, an
 
 This implies that all previous vertices, `z`, included in the reached set have:
 
-\[ D(S,z) = d(S,z) \]
-
+*D(S ,z) = d(S , z)*
+ 
 Now, let's consider the moment when vertex `x` is included in the reached set:
 
 - Let `P` be the actual shortest path from `S` to `x`.
@@ -44,23 +44,23 @@ Now, let's consider the moment when vertex `x` is included in the reached set:
 
 We have the following relations:
 
- *D(S,y) = d(S,y)*  (because `y` was included before `x`).
+ *D(S , y) = d(S , y)*  (because `y` was included before `x`).
 
- *D(S,z) = D(S,y) + linkcost(y,z) = d(S,y) + linkcost(y,z)*  (by how `z` was chosen).
+ *D(S , z) = D(S,y) + linkcost(y , z) = d(S , y) + linkcost(y , z)*  (by how `z` was chosen).
 
- *D(S,x) ≤ D(S,z)*  (because `x` is included after `z`).
+ *D(S , x) ≤ D(S,z)*  (because `x` is included after `z`).
 
 Now, using the fact that a sub-path of a shortest path is itself a shortest path:
 
-*d(S,x) = d(S,z) + d(z,x)*
+*d(S , x) = d(S , z) + d(z , x)*
 
 We can now conclude:
 
-*D(S,x) ≤ D(S,z)*
-*= d(S,y) + linkcost(y,z)*
-*≤ d(S,y) + linkcost(y,z) + d(z,x)*
-*= d(S,x)*
+*D(S , x) ≤ D(S , z)*
+*= d(S , y) + linkcost(y , z)*
+*≤ d(S , y) + linkcost(y , z) + d(z , x)*
+*= d(S , x)*
 
-This contradicts our assumption that *D(S,x) > d(S,x)*.
+This contradicts our assumption that *D(S , x) > d(S , x)*.
 
 Therefore, our initial assumption must be false, and the statement holds *true* for **Dijkstra's Algorithm**.
