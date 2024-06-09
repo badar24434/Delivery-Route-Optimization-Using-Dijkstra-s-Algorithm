@@ -22,7 +22,7 @@ In this article, we will determine the shortest route for delivery service by **
 
 ## Proof of Correctness for Dijkstra's Algorithm:
 
-**Claim:** In Dijkstra's Algorithm, when a vertex `u` is included in the reached set, the distance computed by the algorithm `D(S , u)` is equal to the actual minimum distance `d(S , u)` from the source `S` to `u`.
+**Claim:** In Dijkstra's Algorithm, when a vertex `u` is included in the reached set, the distance computed by the algorithm #`D(S , u)` is equal to the actual minimum distance #`d(S , u)` from the source `S` to `u`.
 
 **Proof:** (by contradiction)
 
