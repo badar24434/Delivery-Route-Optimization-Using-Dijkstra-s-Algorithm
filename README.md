@@ -20,52 +20,42 @@ truck and drone routing in package delivery logistics (Das et al. 2020), and a m
 In this article, we will determine the shortest route for delivery service by **PosLaju Malaysia** in **Selangor** using the **Dijkstra algorithm**.
 
 
-## Proof of Correctness
+## Proof of Correctness for Dijkstra's Algorithm:
 
-### Introduction
-Let's denote the true shortest path distance of vertex \( v \) from the source \( s \) as \( \delta(v) \). Dijkstra’s algorithm estimates this by initially setting the distance to \( \infty \) for all vertices and then gradually lowering this estimate.
+**Claim:** In Dijkstra's Algorithm, when a vertex `u` is included in the reached set, the distance computed by the algorithm (`D(S,u)`) is equal to the actual minimum distance (`d(S,u)`) from the source `S` to `u`.
 
-### Lemma 2.1
-If \( d[v] = \delta(v) \) for any vertex \( v \) at any stage of Dijkstra’s algorithm, then \( d[v] = \delta(v) \) for the rest of the algorithm.
+**Proof:** (by contradiction)
 
-**Proof:**
-- The distance \( d[v] \) cannot become smaller than \( \delta(v) \).
-- Thus, the test condition in the RELAX() procedure will always fail once \( d[v] \) equals \( \delta(v) \).
+Let's suppose the statement is false. That implies there exist some vertices for which, when `u` is included in the reached set, we have:
 
-### Theorem 2.1
-Let \( \langle v_1 = s, v_2, \ldots, v_n \rangle \) denote the sequence of vertices extracted from the heap \( Q \) by Dijkstra’s algorithm. When vertex \( v_i \) is extracted from \( Q \), \( d[v_i] = \delta(v_i) \).
+\[ D(S,u) > d(S,u) \]
 
-**Proof:**
+Let's denote `x` as the first vertex among these where this inequality holds, and assume `x` was included in the reached set.
 
-1. **Base Case (First Vertex):**
-   - For the initial vertex \( v_1 = s \):
-     - \( d[s] = 0 \) since \( \delta(s) = 0 \) and all edge weights are positive.
+This implies that all previous vertices, `z`, included in the reached set have:
 
-2. **Induction Step:**
-   - Assume for the first \( k-1 \) vertices that \( d[v_i] = \delta(v_i) \) holds for each \( i = 2, 3, \ldots, k-1 \).
-   - Consider the \( k \)-th vertex \( v_k \) as it is extracted from \( Q \):
-     - By the mechanics of Dijkstra's algorithm, \( d[v_k] \leq d[v_j] \) for any \( j > k \).
-     - Assume the shortest path from \( s \) to \( v_k \) involves only vertices from the set \( R = \{v_1, \ldots, v_{k-1}\} \):
-       - Hence, \( d[v_k] = \delta(v_k) \).
+\[ D(S,z) = d(S,z) \]
 
-3. **Contradiction:**
-   - Consider the first vertex \( v_q \) not in \( R \) on the shortest path from \( s \) to \( v_k \). Let \( v_p \) be the vertex before \( v_q \) on this path:
-     - When \( v_p \) is deleted from \( Q \), \( d[v_q] = \delta(v_q) \) since all its edges were relaxed.
-     - Since there are no zero-cost edges, \( \delta(v_q) < \delta(v_k) \), hence \( d[v_q] < d[v_k] \).
-     - This contradicts the choice of \( v_k \) as the vertex for which \( d[v_k] \) is minimum when \( v_k \) is deleted from \( Q \).
+Now, let's consider the moment when vertex `x` is included in the reached set:
 
-Thus, \( d[v_i] = \delta(v_i) \) for all vertices \( v_i \).
+- Let `P` be the actual shortest path from `S` to `x`.
+- Let `z` be the first vertex not in the reached set but on the shortest path `P`.
+- Let `y` be the predecessor vertex of `z` on the shortest path `P`.
 
-### Visualization
-Consider a simple weighted graph with vertices and edges, where weights represent the distance or cost between vertices.
+We have the following relations:
+1. \( D(S,y) = d(S,y) \) (because `y` was included before `x`).
+2. \( D(S,z) = D(S,y) + \text{linkcost}(y,z) = d(S,y) + \text{linkcost}(y,z) \) (by how `z` was chosen).
+3. \( D(S,x) \leq D(S,z) \) (because `x` is included after `z`).
 
-1. **Initial Setup:**
-   - Start at the source vertex \( s \) with \( d[s] = 0 \) and all other distances \( d[v] = \infty \).
+Now, using the fact that a sub-path of a shortest path is itself a shortest path:
+\[ d(S,x) = d(S,z) + d(z,x) \]
 
-2. **Iteration:**
-   - Select the vertex with the smallest \( d[v] \) not yet processed.
-   - Update the distances \( d[v] \) for all adjacent vertices using the relaxation step.
-   - Continue until all vertices are processed.
+We can now conclude:
+\[ D(S,x) \leq D(S,z) \]
+\[ = d(S,y) + \text{linkcost}(y,z) \]
+\[ \leq d(S,y) + \text{linkcost}(y,z) + d(z,x) \]
+\[ = d(S,x) \]
 
-### Summary
-The correctness of Dijkstra's algorithm hinges on the property that once a vertex’s shortest path estimate is determined (when it’s removed from the priority queue), it remains correct. This ensures the algorithm consistently finds the shortest path in graphs with non-negative weights.
+This contradicts our assumption that \( D(S,x) > d(S,x) \).
+
+Therefore, our initial assumption must be false, and the statement holds ***true*** for **Dijkstra's Algorithm**.
