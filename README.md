@@ -24,4 +24,4 @@ Optimization can also use the **Prim algorithm** to design autonomous drone cont
 
 As an application in graph theory, a study has been conducted by Ginting et al. in 2019 on delivery simulation using the **Dijkstra algorithm** to solve the problem of traveling salesmen (Ginting, Osmond, and Aditsania 2019). The application of graphs as models to a problem is not only in determining the shortest path and the fastest path. A graph is also used as a model on traffic congestion problems. 
 
-In this article, we will determine the shortest route for delivery service by **PosLaju Malaysia** in **Kuala Lumpur** using the **Dijkstra algorithm**.
+In this article, we will determine the shortest route for delivery service by **PosLaju Malaysia** in **Selangor** using the **Dijkstra algorithm**.
