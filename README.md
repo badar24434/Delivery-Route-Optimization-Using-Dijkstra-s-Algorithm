@@ -16,12 +16,4 @@ A cycle is a closed route that visits a vertex once, otherwise, it is a circuit.
 
 Optimal distribution management capabilities will have a major impact on all aspects, especially for freight package delivery service companies. Recently, there have been several studies related to delivery service optimization, namely the problem of routing vehicles with drones for delivery services using **ant colony optimization algorithms** (Huang et al. 2022), integrating clustering methodologies and routing optimization algorithms for last-mile parcel delivery (Ramírez-Villamil et al. 2022), multi-objective optimization of bicycle routes for last-mile package delivery with drop-off (Osaba et al. 2018), synchronized truck and drone routing in package delivery logistics (Das et al. 2020), and a multi-objective optimization approach to package delivery by the crowd of occupied taxis (Zhou et al. 2022).
 
-#### Other Algorithms in Optimization
-
-Optimization can also use the **Prim algorithm** to design autonomous drone controls in packet delivery (Wirabudi, Hafiza, and Fachrurrozi 2022) and determine the shortest or fastest path in logistics distribution (Lusiani, Sartika, Habinuddin, et al. 2021). The Prim algorithm can be compared to the **Floyd-Warshall algorithm** in optimization to determine the shortest path (Ramadhan, Siahaan, and Mesran 2018). Using a methodology based on the **Prim Algorithm**, we can improve the reliability index using artificial immune system techniques by applying graph theory considerations to improve computational performance and Pareto's rule of dominance (Alonso, Oliveira, and De Souza 2014).
-
-#### Graph Theory Applications
-
-As an application in graph theory, a study has been conducted by Ginting et al. in 2019 on delivery simulation using the **Dijkstra algorithm** to solve the problem of traveling salesmen (Ginting, Osmond, and Aditsania 2019). The application of graphs as models to a problem is not only in determining the shortest path and the fastest path. A graph is also used as a model on traffic congestion problems. 
-
 In this article, we will determine the shortest route for delivery service by **PosLaju Malaysia** in **Selangor** using the **Dijkstra algorithm**.
