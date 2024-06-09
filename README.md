@@ -44,11 +44,11 @@ Now, let's consider the moment when vertex `x` is included in the reached set:
 
 We have the following relations:
 
- *D(S,y) = d(S,y)* (because `y` was included before `x`).
+ *D(S,y) = d(S,y)*  (because `y` was included before `x`).
 
- *D(S,z) = D(S,y) + linkcost(y,z) = d(S,y) + linkcost(y,z)*(by how `z` was chosen).
+ *D(S,z) = D(S,y) + linkcost(y,z) = d(S,y) + linkcost(y,z)*  (by how `z` was chosen).
 
- *D(S,x) ≤ D(S,z)* (because `x` is included after `z`).
+ *D(S,x) ≤ D(S,z)*  (because `x` is included after `z`).
 
 Now, using the fact that a sub-path of a shortest path is itself a shortest path:
 
@@ -56,7 +56,7 @@ Now, using the fact that a sub-path of a shortest path is itself a shortest path
 
 We can now conclude:
 
-*D(S,x) \leq D(S,z)*
+*D(S,x) ≤ D(S,z)*
 *= d(S,y) + linkcost(y,z)*
 *≤ d(S,y) + linkcost(y,z) + d(z,x)*
 *= d(S,x)*
