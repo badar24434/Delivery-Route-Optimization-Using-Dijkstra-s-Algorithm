@@ -44,9 +44,12 @@ Now, let's consider the moment when vertex `x` is included in the reached set:
 
 We have the following relations:
 
- *D(S , y) = d(S , y)*  (because `y` was included before `x`).
+ *D(S , y) = d(S , y)*  (The min. distance `S ⇒ y` computed by the algorithm = actual min. distance `S ⇒ y` because `y` in included before `x`).
 
- *D(S , z) = D(S,y) + linkcost(y , z) = d(S , y) + linkcost(y , z)*  (by how `z` was chosen).
+
+ *D(S , z) = D(S,y) + linkcost(y , z) 
+ = d(S , y) + linkcost(y , z)*  (by how `z` was chosen).
+
 
  *D(S , x) ≤ D(S,z)*  (because `x` is included after `z`).
 
