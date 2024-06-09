@@ -44,23 +44,23 @@ Now, let's consider the moment when vertex `x` is included in the reached set:
 
 We have the following relations:
 
-\[ D(S,y) = d(S,y) \] (because `y` was included before `x`).
+ *D(S,y) = d(S,y)* (because `y` was included before `x`).
 
-\[ D(S,z) = D(S,y) + \text{linkcost}(y,z) = d(S,y) + \text{linkcost}(y,z) \] (by how `z` was chosen).
+ *D(S,z) = D(S,y) + linkcost(y,z) = d(S,y) + linkcost(y,z)*(by how `z` was chosen).
 
-\[ D(S,x) \leq D(S,z) \] (because `x` is included after `z`).
+ *D(S,x) ≤ D(S,z)* (because `x` is included after `z`).
 
 Now, using the fact that a sub-path of a shortest path is itself a shortest path:
 
-\[ d(S,x) = d(S,z) + d(z,x) \]
+*d(S,x) = d(S,z) + d(z,x)*
 
 We can now conclude:
 
-\[ D(S,x) \leq D(S,z) \]
-\[ = d(S,y) + \text{linkcost}(y,z) \]
-\[ \leq d(S,y) + \text{linkcost}(y,z) + d(z,x) \]
-\[ = d(S,x) \]
+*D(S,x) \leq D(S,z)*
+*= d(S,y) + linkcost(y,z)*
+*≤ d(S,y) + linkcost(y,z) + d(z,x)*
+*= d(S,x)*
 
-This contradicts our assumption that \( D(S,x) > d(S,x) \).
+This contradicts our assumption that *D(S,x) > d(S,x)*.
 
-Therefore, our initial assumption must be false, and the statement holds true for Dijkstra's Algorithm.
+Therefore, our initial assumption must be false, and the statement holds *true* for **Dijkstra's Algorithm**.
