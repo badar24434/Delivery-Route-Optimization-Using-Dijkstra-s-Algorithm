@@ -77,3 +77,53 @@ We can now conclude:
 This contradicts our assumption that *D(S , x) > d(S , x)*.
 
 Therefore, our initial assumption must be false, and the statement holds *true* for **Dijkstra's Algorithm**.
+
+
+
+# Dijkstra's Algorithm Analysis
+
+This repository provides an implementation of Dijkstra's algorithm using a Fibonacci heap, offering an efficient way to compute the shortest paths in a graph.
+
+## Overview
+
+The most efficient implementation of Dijkstra's algorithm leverages a Fibonacci heap. This data structure is a lazy heap, meaning it defers some operations to ensure others are extremely fast. The heap operations in a Fibonacci heap are very efficient due to its structure, where each node contains a pointer to its parent and one of its children, and a circular linked list connects the children nodes. This ensures that the heap maintains a pointer to the minimum distance node, facilitating very efficient operations.
+
+## Time Complexity of Fibonacci Heap Operations
+
+Here are the time complexities for common operations in a Fibonacci heap compared to a binary heap:
+
+
+| Operation   | Binary Heap | Fibonacci Heap |
+|-------------|-------------|----------------|
+| Insert      | O(log V)    | O(1)           |
+| ReturnMin   | O(1)        | O(1)           |
+| DeleteMin   | O(log V)    | O(log V)       |
+| Delete      | O(log V)    | O(log V)       |
+| DecreaseKey | O(log V)    | O(1)           |
+| Merge       | O(1)        | O(1)           |
+
+## Time Complexity Analysis
+The use of a Fibonacci heap theoretically improves the efficiency of Dijkstra's algorithm, especially for dense graphs. The total time complexity for Dijkstra's algorithm with a Fibonacci heap is **O ( V log V+ E )** , where **V** is the number of vertices and **E** is the number of edges.
+
+### Worst Case Time Complexity
+
+- **Time Complexity**: (O ( E + V \log V)\)
+- **Explanation**: The worst case involves multiple decrease key operations. With a Fibonacci heap, each decrease key operation takes \(O(1)\) time. Since the inner loop operations occur \(O ( V + E)\) times, the total complexity is \(O ( E + V \log V )\).
+
+### Average Case Time Complexity
+
+- **Time Complexity**: \(O(E + V \log (E/V) V \log V)\)
+- **Explanation**: On average, the number of decrease key operations is limited by \(O(V \log (E/V))\). Multiplying this by the original complexity gives us the average time complexity of \(O(E + V \log (E/V) V \log V)\).
+
+### Best Case Time Complexity
+
+- **Time Complexity**: \(O(E + V \log V)\)
+- **Explanation**: In the best case, the algorithm performs fewer decrease key operations. The complexity remains \(O(E + V \log V)\) due to the base complexity of Fibonacci heap operations.
+
+## Summary
+
+Using a Fibonacci heap for Dijkstra's algorithm offers significant theoretical efficiency improvements, particularly for dense graphs:
+
+- **Worst Case**: \(O(E + V \log V)\)
+- **Average Case**: \(O(E + V \log (E/V) V \log V)\)
+- **Best Case**: \(O(E + V \log V)\)
