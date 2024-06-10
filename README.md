@@ -42,6 +42,8 @@ Now, let's consider the moment when vertex `x` is included in the reached set:
 - Let `z` be the first vertex not in the reached set but on the shortest path `P`.
 - Let `y` be the predecessor vertex of `z` on the shortest path `P`.
 
+![image](https://github.com/badar24434/Delivery-Route-Optimization-Using-Dijkstra-s-Algorithm/assets/164218215/3a632eff-490d-4196-9802-3292bbf2f38f)
+
 We have the following relations:
 
  *D(S , y) = d(S , y)*  (The min. distance `S ⇒ y` computed by the algorithm = actual min. distance `S ⇒ y` because `y` in included before `x`).
@@ -52,6 +54,9 @@ We have the following relations:
 
 
  *D(S , x) ≤ D(S,z)*  (because `x` is included after `z`).
+
+![image](https://github.com/badar24434/Delivery-Route-Optimization-Using-Dijkstra-s-Algorithm/assets/164218215/fa64bf1a-aac0-4ee6-9572-8ee775de3965)
+
 
 Now, using the fact that a sub-path of a shortest path is itself a shortest path:
 
