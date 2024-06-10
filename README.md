@@ -107,23 +107,23 @@ The use of a Fibonacci heap theoretically improves the efficiency of Dijkstra's 
 
 ### Worst Case Time Complexity
 
-- **Time Complexity**: (O ( E + V \log V)\)
-- **Explanation**: The worst case involves multiple decrease key operations. With a Fibonacci heap, each decrease key operation takes \(O(1)\) time. Since the inner loop operations occur \(O ( V + E)\) times, the total complexity is \(O ( E + V \log V )\).
+- **Time Complexity**: *O( E + V log V)*
+- **Explanation**: The worst case involves multiple decrease key operations. With a Fibonacci heap, each decrease key operation takes *O(1)* time. Since the inner loop operations occur *O(V + E)* times, the total complexity is *O(E + V log V )*.
 
 ### Average Case Time Complexity
 
-- **Time Complexity**: \(O(E + V \log (E/V) V \log V)\)
-- **Explanation**: On average, the number of decrease key operations is limited by \(O(V \log (E/V))\). Multiplying this by the original complexity gives us the average time complexity of \(O(E + V \log (E/V) V \log V)\).
+- **Time Complexity**: *O(E + V log (E/V) V log V)*.
+- **Explanation**: On average, the number of decrease key operations is limited by *O(V log (E/V))*. Multiplying this by the original complexity gives us the average time complexity of *O(E + V log (E/V) V log V)*.
 
 ### Best Case Time Complexity
 
-- **Time Complexity**: \(O(E + V \log V)\)
-- **Explanation**: In the best case, the algorithm performs fewer decrease key operations. The complexity remains \(O(E + V \log V)\) due to the base complexity of Fibonacci heap operations.
+- **Time Complexity**: *O(E + V log V)*
+- **Explanation**: In the best case, the algorithm performs fewer decrease key operations. The complexity remains *O(E + V log V)* due to the base complexity of Fibonacci heap operations.
 
 ## Summary
 
 Using a Fibonacci heap for Dijkstra's algorithm offers significant theoretical efficiency improvements, particularly for dense graphs:
 
-- **Worst Case**: \(O(E + V \log V)\)
-- **Average Case**: \(O(E + V \log (E/V) V \log V)\)
-- **Best Case**: \(O(E + V \log V)\)
+- **Worst Case**: *O(E + V log V)*
+- **Average Case**: *O(E + V log (E/V) V log V)*
+- **Best Case**: *O(E + V log V)*
