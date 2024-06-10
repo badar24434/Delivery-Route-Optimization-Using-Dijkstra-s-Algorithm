@@ -88,7 +88,7 @@ This repository provides an implementation of Dijkstra's algorithm using a Fibon
 
 The most efficient implementation of Dijkstra's algorithm leverages a Fibonacci heap. This data structure is a lazy heap, meaning it defers some operations to ensure others are extremely fast. The heap operations in a Fibonacci heap are very efficient due to its structure, where each node contains a pointer to its parent and one of its children, and a circular linked list connects the children nodes. This ensures that the heap maintains a pointer to the minimum distance node, facilitating very efficient operations.
 
-## Time Complexity of Fibonacci Heap Operations
+## Time Complexity of Fibonacci Heap Operations Compared to Binary Heap
 
 | Operation   | Binary Heap | Fibonacci Heap | Efficiency Improvement |
 |-------------|-------------|----------------|------------------------|
@@ -103,7 +103,7 @@ The most efficient implementation of Dijkstra's algorithm leverages a Fibonacci 
 
 - **Insert**: The Fibonacci heap can perform insertions in constant time, O(1), compared to the O(log V) time in a binary heap. For \(n\) operations, this results in an improvement from O(log V) to O(1).
 
-- **DecreaseKey**: Similarly, the DecreaseKey operation in a Fibonacci heap is O(1) compared to O(log V) in a binary heap. This leads to an overall improvement from O(log V) to O() for \(n\) DecreaseKey operations.
+- **DecreaseKey**: Similarly, the DecreaseKey operation in a Fibonacci heap is O(1) compared to O(log V) in a binary heap. This leads to an overall improvement from O(log V) to O(1) for \(n\) DecreaseKey operations.
 
 ## Time Complexity Analysis
 The use of a Fibonacci heap theoretically improves the efficiency of Dijkstra's algorithm, especially for dense graphs. The total time complexity for Dijkstra's algorithm with a Fibonacci heap is **O ( V log V+ E )** , where **V** is the number of vertices and **E** is the number of edges.
