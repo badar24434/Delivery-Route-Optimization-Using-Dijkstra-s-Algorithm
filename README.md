@@ -87,11 +87,14 @@ The flow of research methodology can be described as follows. First, collecting 
 The initial model graph is constructed from data on the number of customers, customer locations, the existence of roads connecting one location to another, road conditions travelled, and mileage between locations. The road connecting these locations must be passable by a motorcycle. In this model, if there is no road connecting 2 locations directly then there is no edge between the 2 locations. Thus, the initial model graph of this algorithm is a connected weighted graph, namely G, as shown in Figure 1. 
 
 <img width="282" alt="image" src="https://github.com/badar24434/Delivery-Route-Optimization-Using-Dijkstra-s-Algorithm/assets/115607585/a79f3306-4ef1-4e1d-b4cf-392c94168e8e">
+
 Figure 1 The Initial Model Graph G
 
 Vertex 1 is the drop point of PT. J&T Express blabla which is the starting point or the initial vertex of the route. Vertex 2 until vertex 13 are customers who will be visited by a courier one by one sequentially according to the Dijkstra algorithm. The initial model constructed graph is not a complete graph because not all vertices are directly connected to other vertices by an edge. It is a graph with 13 vertices and 21 edges. Figure 2 shows a matrix adjacent of the initial model graph. Matrix elements are weights on the edges of the graph. The weight of the edges is the mileage from one location to another in meters. The element on the main diagonal of the matrix is zero, since there is no distance between the same vertices. This matrix is symmetrical, because the mileage from vertex i to vertex j is equal to the mileage from vertex j to vertex i. 
 
-  
+ ![Picture 1](https://github.com/badar24434/Delivery-Route-Optimization-Using-Dijkstra-s-Algorithm/assets/115607585/14cd7e83-ec00-4320-a583-147add3cb5b0)
+
+Figure 2 Matrix Adjacent of Graph G
 
 The steps of the Dijkstra algorithm work as follows. The first step is to establish a 
 starting point with the status of having been found and has been visited. A courier picks up packages of goods sent to customers at the blabla drop point, so vertex 1 is the starting point of the route. Thus, the status of vertex 1 has been found and visited. The second step is to find other vertices that are adjacent to vertex 1. If these vertices have not yet found, then change their status to be found. However, if it has been found then only update the weight. The third step is to choose a vertex with a minimum weight to visit. 
@@ -99,26 +102,43 @@ starting point with the status of having been found and has been visited. A cour
 This second and third steps result in a vertex always being found, if the vertex is connected to a vertex that has been visited (in fact, a vertex is found more than once if the vertex is connected to some vertices that have been visited). But not all vertex needs to be visited. In the optimization process, if a vertex does not have a minimum weight, then the vertex does not need to be visited. Next, we repeat the second and third steps, so that all vertices have been visited and the courier returns to the initial vertex (vertex 1). The following figure and table show the second and third steps in the first loop on Dijkstra algorithm. 
 
 <img width="447" alt="image" src="https://github.com/badar24434/Delivery-Route-Optimization-Using-Dijkstra-s-Algorithm/assets/115607585/f63322f3-0fb0-48c3-b046-6412a33902d5">
+
 Figure 3 Graph G in The First Loop of Dijkstra Algorithm
 
-Vertex 1 has been determined as the starting point, so in Figure 3, vertex 1 is coloured blue to indicate it has been found and visited. The first row in Table 2 shows the route from vertex 1 to vertex 1 yields zero weight. In the second step, vertices 2, 3, 4, 5, 8, 9, 12, and 13 are adjacent to vertex 1. Then, these vertices are coloured by red (see Figure 3 on the left). Since {1, 9} is the edge with minimum weight of 60 meters, the next vertex to visit is vertex 9. So, vertex 9 is coloured by blue (see Figure 3 on the right). This is also shown in the ninth row of Table 2. 
+Vertex 1 has been determined as the starting point, so in Figure 3, vertex 1 is coloured blue to indicate it has been found and visited. The first row in Table 1 shows the route from vertex 1 to vertex 1 yields zero weight. In the second step, vertices 2, 3, 4, 5, 8, 9, 12, and 13 are adjacent to vertex 1. Then, these vertices are coloured by red (see Figure 3 on the left). Since {1, 9} is the edge with minimum weight of 60 meters, the next vertex to visit is vertex 9. So, vertex 9 is coloured by blue (see Figure 3 on the right). This is also shown in the ninth row of Table 1. 
 
-Vertex	Status	Weight	Route
-1	Visited	0	1
-2	Found	800	(1,2)
-3	Found	600	(1,3)
-4	Found	650	(1,4)
-5	Found	260	(1,5)
-6	Not yet found	∞	-
-7	Not yet found	∞	-
-8	Found	750	(1,8)
-9	Visited	60	(1,9)
-10	Not yet found	∞	-
-11	Not yet found	∞	-
-12	Found	190	(1,12)
-13	Found	400	(1,13)
+<img width="237" alt="image" src="https://github.com/badar24434/Delivery-Route-Optimization-Using-Dijkstra-s-Algorithm/assets/115607585/4b3c01ba-1551-44c0-81a6-224e41b5412f">
+
+Table 1 The Vertices Conditions in The First Loop of Algorithm Dijkstra
+
+The next step is loop sequentially from second step to third step until the all of the courier returns again to vertex 1 as the starting point. The following figure shows the second and third steps in the fourth loop on Dijkstra algorithm. 
+
+<img width="452" alt="image" src="https://github.com/badar24434/Delivery-Route-Optimization-Using-Dijkstra-s-Algorithm/assets/115607585/ae1633a9-6c4a-4506-ae6e-c71417f70e33">
+
+Figure 4 Graph G in The Fourth Loop of Dijkstra Algorithm
+
+Figure 4 on the left shows vertices 9, 10, and 11 have been found and visited, so these vertices are coloured by blue. While, vertex 12 has been found and coloured by red. Then, Figure 4 on the right shows vertex 12 has been visited, since vertex 12 is the only vertex found by vertex 11, so vertex 12 is coloured by blue. 
+
+<img width="250" alt="image" src="https://github.com/badar24434/Delivery-Route-Optimization-Using-Dijkstra-s-Algorithm/assets/115607585/39af40c3-feaa-470b-8219-38c3306879e7">
+
+Table 2 The Vertices Conditions in The Fourth Loop of Algorithm Dijkstra
+
+The ninth until the twelfth rows in Table 3 show vertices 9, 10, 11, and 12 have been found and visited, vertices 2, 3, 4, 5, 8, and 13 have been found, while vertices 6 and 7 have not found. The route from vertex 1 to vertex 12 is (1, 9, 10, 11, 12) for a total weight of 400 meters.
+
+In the fifth loop, we have found vertices 1 and 13, because vertex 12 adjacent to these vertices. But, vertex 1 has been visited. So, we must chose vertex 13 to visit. Since vertices 4, 3, and 2 are close together, we chose these vertices to visit sequentially on the 6th through 9th loops. Therefore, these three vertices have a status of having been visited and are coloured by blue. The route from vertex 1 to vertex 2 is (1, 9, 10, 11, 12, 13, 4, 3, 2) for a total weight of 1490 meters. 
+
+We find out some vertices that have not yet visited, after visit vertex 2. Since vertex 2 is adjacent to vertices 1, 3, 8 and 13, so we find vertex 8. Since vertices 5, 6, 7, and 8 are close together, we chose these vertices to visit sequentially until on the final loops. Thus, the last customer to visit on this trip is vertex 5. 
 
 
+<img width="262" alt="image" src="https://github.com/badar24434/Delivery-Route-Optimization-Using-Dijkstra-s-Algorithm/assets/115607585/4ee7e73c-b8ef-4bb3-9fd3-c92fa300b555">
+
+Figure 5 Graph G in The Last Loop of Algorithm Dijkstra
+
+Next, the courier must return to the starting point, vertex 1, to report the delivery results. This step from vertex 5 to vertex 1 is the last loop because there is only one road that connects directly between these vertices. Therefore, the final route at this trip as the shortest closed route as shown in Figure 5 is a cycle (1, 9, 10, 11, 12, 13, 4, 3, 2, 8, 7, 6, 5, 1) with a weight of 1890 meters as shown in the following table. 
+
+<img width="365" alt="image" src="https://github.com/badar24434/Delivery-Route-Optimization-Using-Dijkstra-s-Algorithm/assets/115607585/66b405f8-e53e-40b7-9b5d-ee5857415407">
+
+ Table 3 The Vertices Condition in The Last Loop of Algorithm Dijkstra
 
 # Dijkstra's Algorithm Analysis
 
