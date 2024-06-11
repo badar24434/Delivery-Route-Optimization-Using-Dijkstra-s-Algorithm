@@ -78,6 +78,18 @@ This contradicts our assumption that *D(S , x) > d(S , x)*.
 
 Therefore, our initial assumption must be false, and the statement holds *true* for **Dijkstra's Algorithm**.
 
+# Methodology 
+
+The model to be analysed is the case of a package delivery service carried out by a courier from a drop point of blabla. The number of customers served by a courier is more than 15 customers in one delivery trip depending on the density of demand. In this case, we will analysis for 17 customers in 12 locations in the blabla and blbla areas. Meanwhile, data about mileage is obtained from the Google Maps application. All this data is used to construct an initial model graph which is a connected weighted graph, where the location of the drop point or a customer is a vertex and the road connecting two locations is an edge of the graph. The weight in this graph is the distance travelled from the drop point to the customers or from one customer to another. We call the distance travelled is the mileage. Then, the Dijkstra algorithm is run on this graph where the drop point is the starting point of the route, such that the courier visits all customers and returns again to the drop point.
+
+The flow of research methodology can be described as follows. First, collecting of customer location/address data. Then, processing location data into distance data travelled from one location to another. Second, constructing this data as an initial model i.e. a connected weighted graph. Third, running the Dijkstra algorithm on this graph so that the shortest route is obtained. This shortest route should visit all customers and return again to the drop point. Thus, this route is either a closed path (cycle) or a closed trail (circuit) that is a subgraph of the initial model graph.
+
+The initial model graph is constructed from data on the number of customers, customer locations, the existence of roads connecting one location to another, road conditions travelled, and mileage between locations. The road connecting these locations must be passable by a motorcycle. In this model, if there is no road connecting 2 locations directly then there is no edge between the 2 locations. Thus, the initial model graph of this algorithm is a connected weighted graph, namely G, as shown in Figure 1. 
+
+
+
+
+
 
 
 # Dijkstra's Algorithm Analysis
