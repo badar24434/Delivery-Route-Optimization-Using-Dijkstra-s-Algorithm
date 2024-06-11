@@ -86,6 +86,7 @@ The flow of research methodology can be described as follows. First, collecting 
 
 The initial model graph is constructed from data on the number of customers, customer locations, the existence of roads connecting one location to another, road conditions travelled, and mileage between locations. The road connecting these locations must be passable by a motorcycle. In this model, if there is no road connecting 2 locations directly then there is no edge between the 2 locations. Thus, the initial model graph of this algorithm is a connected weighted graph, namely G, as shown in Figure 1. 
 
+<img width="282" alt="image" src="https://github.com/badar24434/Delivery-Route-Optimization-Using-Dijkstra-s-Algorithm/assets/115607585/a79f3306-4ef1-4e1d-b4cf-392c94168e8e">
 
 
 
