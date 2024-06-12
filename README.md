@@ -78,9 +78,9 @@ This contradicts our assumption that *D(S , x) > d(S , x)*.
 
 Therefore, our initial assumption must be false, and the statement holds *true* for **Dijkstra's Algorithm**.
 
-# Methodology 
+# Illustration Of The Problem 
 
-The model to be analysed is the case of a package delivery service carried out by a courier from a drop point of blabla. The number of customers served by a courier is more than 15 customers in one delivery trip depending on the density of demand. In this case, we will analysis for 17 customers in 12 locations in the blabla and blbla areas. Meanwhile, data about mileage is obtained from the Google Maps application. All this data is used to construct an initial model graph which is a connected weighted graph, where the location of the drop point or a customer is a vertex and the road connecting two locations is an edge of the graph. The weight in this graph is the distance travelled from the drop point to the customers or from one customer to another. We call the distance travelled is the mileage. Then, the Dijkstra algorithm is run on this graph where the drop point is the starting point of the route, such that the courier visits all customers and returns again to the drop point.
+The model to be analysed is the case of a package delivery service carried out by a courier from a drop point of PosLaju Seri Kembangan which is located at 1230, Jalan Sekolah, Kampung Baru Seri Kembangan, 43300 Seri Kembangan, Selangor. The number of customers served by a courier is more than 15 customers in one delivery trip depending on the density of demand. In this case, we will analysis for 17 customers in 12 locations in the Serdang area. Meanwhile, data about mileage is obtained from the Google Maps application. All this data is used to construct an initial model graph which is a connected weighted graph, where the location of the drop point or a customer is a vertex and the road connecting two locations is an edge of the graph. The weight in this graph is the distance travelled from the drop point to the customers or from one customer to another. We call the distance travelled is the mileage. Then, the Dijkstra algorithm is run on this graph where the drop point is the starting point of the route, such that the courier visits all customers and returns again to the drop point.
 
 The flow of research methodology can be described as follows. First, collecting of customer location/address data. Then, processing location data into distance data travelled from one location to another. Second, constructing this data as an initial model i.e. a connected weighted graph. Third, running the Dijkstra algorithm on this graph so that the shortest route is obtained. This shortest route should visit all customers and return again to the drop point. Thus, this route is either a closed path (cycle) or a closed trail (circuit) that is a subgraph of the initial model graph.
 
@@ -90,7 +90,7 @@ The initial model graph is constructed from data on the number of customers, cus
 
 Figure 1 The Initial Model Graph G
 
-Vertex 1 is the drop point of PT. J&T Express blabla which is the starting point or the initial vertex of the route. Vertex 2 until vertex 13 are customers who will be visited by a courier one by one sequentially according to the Dijkstra algorithm. The initial model constructed graph is not a complete graph because not all vertices are directly connected to other vertices by an edge. It is a graph with 13 vertices and 21 edges. Figure 2 shows a matrix adjacent of the initial model graph. Matrix elements are weights on the edges of the graph. The weight of the edges is the mileage from one location to another in meters. The element on the main diagonal of the matrix is zero, since there is no distance between the same vertices. This matrix is symmetrical, because the mileage from vertex i to vertex j is equal to the mileage from vertex j to vertex i. 
+Vertex 1 is the drop point of PosLaju Seri Kembangan which is the starting point or the initial vertex of the route. Vertex 2 until vertex 13 are customers who will be visited by a courier one by one sequentially according to the Dijkstra algorithm. The initial model constructed graph is not a complete graph because not all vertices are directly connected to other vertices by an edge. It is a graph with 13 vertices and 21 edges. Figure 2 shows a matrix adjacent of the initial model graph. Matrix elements are weights on the edges of the graph. The weight of the edges is the mileage from one location to another in meters. The element on the main diagonal of the matrix is zero, since there is no distance between the same vertices. This matrix is symmetrical, because the mileage from vertex i to vertex j is equal to the mileage from vertex j to vertex i. 
 
  ![Picture 1](https://github.com/badar24434/Delivery-Route-Optimization-Using-Dijkstra-s-Algorithm/assets/115607585/14cd7e83-ec00-4320-a583-147add3cb5b0)
 
@@ -144,11 +144,11 @@ Next, the courier must return to the starting point, vertex 1, to report the del
 
 This repository provides an implementation of Dijkstra's algorithm using a Fibonacci heap, offering an efficient way to compute the shortest paths in a graph.
 
-## Overview
+### Overview
 
 The most efficient implementation of Dijkstra's algorithm leverages a Fibonacci heap. This data structure is a lazy heap, meaning it defers some operations to ensure others are extremely fast. The heap operations in a Fibonacci heap are very efficient due to its structure, where each node contains a pointer to its parent and one of its children, and a circular linked list connects the children nodes. This ensures that the heap maintains a pointer to the minimum distance node, facilitating very efficient operations.
 
-## Time Complexity of Fibonacci Heap Operations Compared to Binary Heap
+### Time Complexity of Fibonacci Heap Operations Compared to Binary Heap
 
 | Operation   | Binary Heap | Fibonacci Heap | Efficiency Improvement |
 |-------------|-------------|----------------|------------------------|
@@ -165,25 +165,25 @@ The most efficient implementation of Dijkstra's algorithm leverages a Fibonacci 
 
 - **DecreaseKey**: Similarly, the DecreaseKey operation in a Fibonacci heap is O(1) compared to O(log V) in a binary heap. This leads to an overall improvement from O(log V) to O(1) for \(n\) DecreaseKey operations.
 
-## Time Complexity Analysis
+### Time Complexity Analysis
 The use of a Fibonacci heap theoretically improves the efficiency of Dijkstra's algorithm, especially for dense graphs. The total time complexity for Dijkstra's algorithm with a Fibonacci heap is **O ( V log V+ E )** , where **V** is the number of vertices and **E** is the number of edges.
 
-### Worst Case Time Complexity
+#### Worst Case Time Complexity
 
 - **Time Complexity**: *O( E + V log V)*
 - **Explanation**: The worst case involves multiple decrease key operations. With a Fibonacci heap, each decrease key operation takes *O(1)* time. Since the inner loop operations occur *O(V + E)* times, the total complexity is *O(E + V log V )*.
 
-### Average Case Time Complexity
+#### Average Case Time Complexity
 
 - **Time Complexity**: *O(E + V log (E/V) V log V)*.
 - **Explanation**: On average, the number of decrease key operations is limited by *O(V log (E/V))*. Multiplying this by the original complexity gives us the average time complexity of *O(E + V log (E/V) V log V)*.
 
-### Best Case Time Complexity
+#### Best Case Time Complexity
 
 - **Time Complexity**: *O(E + V log V)*
 - **Explanation**: In the best case, the algorithm performs fewer decrease key operations. The complexity remains *O(E + V log V)* due to the base complexity of Fibonacci heap operations.
 
-## Summary
+#### Summary
 
 Using a Fibonacci heap for Dijkstra's algorithm offers significant theoretical efficiency improvements, particularly for dense graphs:
 
