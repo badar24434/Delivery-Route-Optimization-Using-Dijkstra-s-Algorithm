@@ -216,3 +216,21 @@ Using a Fibonacci heap for Dijkstra's algorithm offers significant theoretical e
 - **Worst Case**: *O(E + V log V)*
 - **Average Case**: *O(E + V log (E/V) V log V)*
 - **Best Case**: *O(E + V log V)*
+
+
+## References
+ 1. Bailey, A., Mackie, I., & Schubert, L. (2023). The use of Dijkstra’s algorithm for pathfinding. Cardiff University. Retrieved from https://orca.cardiff.ac.uk/id/eprint/157867/1/2303.10034.pdf
+
+2. Jurafsky, D. (n.d.). Notes on shortest paths: Dijkstra's algorithm. Hong Kong University of Science and Technology. Retrieved from https://home.cse.ust.hk/~dekai/271/notes/L10/L10.pdf
+
+3. Nugroho, A. S., & Wijayanto, T. (2021). Dijkstra algorithm implementation to determine the shortest route to hospital: A case study in Magelang District, Indonesia. ResearchGate. Retrieved from https://www.researchgate.net/publication/378870879_Dijkstra_Algorithm_Implementation_to_Determine_the_Shortest_Route_to_Hospital_A_Case_Study_in_Magelang_District_Indonesia
+
+4. Yulistiyanto, R., & Widiyanti, M. (2023). Dijkstra algorithm in determining the shortest route for delivery service by J&T Express in Bandung. ResearchGate. Retrieved from https://www.researchgate.net/publication/374038098_DIJKSTRA_ALGORITHM_IN_DETERMINING_THE_SHORTEST_ROUTE_FOR_DELIVERY_SERVICE_BY_JT_EXPRESS_IN_BANDUNG
+
+5. Sharma, S., & Pathak, V. (2017). Optimization of the shortest path problem using Dijkstra's algorithm. IOSR Journal of Mathematics, 13(3), 20-32. Retrieved from https://www.iosrjournals.org/iosr-jm/papers/Vol13-issue3/Version-1/C1303012032.pdf
+
+6. Madalinski, A., & Marszalkowski, E. (2012). Application of Dijkstra’s algorithm in route planning for UAVs. Procedia Engineering, 30, 343-350. https://doi.org/10.1016/j.proeng.2012.01.057
+
+7. Singh, H., & Kaur, A. (2020). Evaluation of Dijkstra's algorithm for road traffic network. Saudi Journal of Biological Sciences, 27(12), 681-689. https://doi.org/10.36348/sb.2020.v05i12.002
+
+8. Pratama, D., & Setiawan, D. (2021). Optimization of vehicle routing problem using Dijkstra algorithm: A case study on a logistics company. Proceedings of the International Conference on Advances in Engineering Research. Retrieved from https://www.atlantis-press.com/article/125974457.pdf
